@@ -34,6 +34,7 @@ function bindButtons() {
 					document.getElementById('caption').textContent = response[0].caption;
 					document.getElementById('date').textContent = response[0].date;
 					document.getElementById('pic').src = picUrl;
+					console.log(picUrl);
 					console.log(response);
 				}
 			} else {
