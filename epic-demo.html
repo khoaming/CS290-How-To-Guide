@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<!--
+	Retrospect by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>EPIC Demo</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	</head>
+	<body>
+				
+		<!-- Header -->
+			<header id="header">
+				<h1><a href="index.html">NASA API</a></h1>
+				<a href="#nav">Menu</a>
+			</header>
+
+		<!-- Nav -->
+			<nav id="nav">
+				<ul class="links">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="what-api.html">Intro to APIs</a></li>
+					<li><a href="api-key.html">Get your API Key</a></li>
+					<li><a href="apod.html">APOD</a></li>
+					<li><a href="apod-demo.html">APOD Demo</a></li>
+					<li><a href="epic.html">EPIC</a></li>
+					<li><a href="epic-demo.html">EPIC Demo</a></li>
+					<li><a href="conclusion.html">Conclusion</a></li>
+				</ul>
+			</nav>
+
+		<!-- Main -->
+			<section id="main" class="wrapper">
+				<div class="container">
+
+					<header class="major special">
+						<h2>Earth Polychromatic Imaging Camera Demo</h2>
+					</header>
+					<a href="#" class="image fit"><img id="pic" src="images/pic11.jpg" height="20%" /></a>
+					<br>
+					<h3>Please enter a date below and you will see a full-disc image of the Earth if available.</h3>
+					<form method="POST">
+					    <label>Date (YYYY-MM-DD):</label>
+					    <input type="text" id="searchDate"/>
+					    <br>
+					    <label>Image Type:</label>
+					    <select id="image_type">
+					    	<option value="natural">Natural</option>
+					    	<option value="enhanced">Enhanced</option>
+					    </select>
+					    <br>
+					    <button type="submit" id="submitButton">Show me the picture!</button>
+					</form>
+					<p>Result: <span id="result"></span></p>
+					<p>Caption: <span id="caption"></span></p>
+  					<p>Date and Time: <span id="date"></span></p>
+  					<ul class="actions">
+						<li>
+							<a href="epic.html" class="button alt">Back</a>
+						</li>
+						<li>
+							<a href="conclusion.html" class="button alt">Next</a>
+						</li>
+					</ul>
+				</div>
+			</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<ul class="copyright">
+						<li>&copy; Khoa Nguyen - OSU CS 290 - Spring 2017.</li>
+						<li>Design: <a href="http://templated.co">TEMPLATED</a>.</li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+			<script src="assets/js/epic.js"></script>
+
+	</body>
+</html>

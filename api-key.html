@@ -26,15 +26,13 @@
 			<nav id="nav">
 				<ul class="links">
 					<li><a href="index.html">Home</a></li>
-					<li><a href="generic.html">Generic</a></li>
-					<li><a href="elements.html">Elements</a></li>
-					<li><a href="home.html">Home</a></li>
-					<li><a href="nasaAPI.html">NASA API Intro</a></li>
-					<li><a href="getKey.html">Get your API Key</a></li>
-					<li><a href="introJSON.html">Working with JSON</a></li>
-					<li><a href="potd.html">Picture of the Day</a></li>
-					<li><a href="marsRov.html">Mars Rover Images</a></li>
-					<li><a href="putTogeth.html">Putting it Together</a></li>
+					<li><a href="what-api.html">Intro to APIs</a></li>
+					<li><a href="api-key.html">Get your API Key</a></li>
+					<li><a href="apod.html">APOD</a></li>
+					<li><a href="apod-demo.html">APOD Demo</a></li>
+					<li><a href="epic.html">EPIC</a></li>
+					<li><a href="epic-demo.html">EPIC Demo</a></li>
+					<li><a href="conclusion.html">Conclusion</a></li>
 				</ul>
 			</nav>
 
@@ -43,38 +41,35 @@
 				<div class="container">
 
 					<header class="major special">
-						<h2>What are API keys and why do we need them?</h2>
-						<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
+						<h2>What are API keys?</h2>
+						<p>and why do we need them?</p>
 					</header>
 
 					<a href="#" class="image fit"><img src="images/pic11.jpg" alt="" /></a>
-					<p>Vis accumsan feugiat adipiscing nisl amet adipiscing accumsan blandit accumsan sapien blandit ac amet faucibus aliquet placerat commodo. Interdum ante aliquet commodo accumsan vis phasellus adipiscing. Ornare a in lacinia. Vestibulum accumsan ac metus massa tempor. Accumsan in lacinia ornare massa amet. Ac interdum ac non praesent. Cubilia lacinia interdum massa faucibus blandit nullam. Accumsan phasellus nunc integer. Accumsan euismod nunc adipiscing lacinia erat ut sit. Arcu amet. Id massa aliquet arcu accumsan lorem amet accumsan.</p>
-					<p>Amet nibh adipiscing adipiscing. Commodo ante vis placerat interdum massa massa primis. Tempus condimentum tempus non ac varius cubilia adipiscing placerat lorem turpis at. Aliquet lorem porttitor interdum. Amet lacus. Aliquam lobortis faucibus blandit ac phasellus. In amet magna non interdum volutpat porttitor metus a ante ac neque. Nisi turpis. Commodo col. Interdum adipiscing mollis ut aliquam id ante adipiscing commodo integer arcu amet Ac interdum ac non praesent. Cubilia lacinia interdum massa faucibus blandit nullam. Accumsan phasellus nunc integer. Accumsan euismod nunc adipiscing lacinia erat ut sit. Arcu amet. Id massa aliquet arcu accumsan lorem amet accumsan commodo odio cubilia ac eu interdum placerat placerat arcu commodo lobortis adipiscing semper ornare pellentesque.</p>
-					<p>Amet nibh adipiscing adipiscing. Commodo ante vis placerat interdum massa massa primis. Tempus condimentum tempus non ac varius cubilia adipiscing placerat lorem turpis at. Aliquet lorem porttitor interdum. Amet lacus. Aliquam lobortis faucibus blandit ac phasellus. In amet magna non interdum volutpat porttitor metus a ante ac neque. Nisi turpis. Commodo col. Interdum adipiscing mollis ut aliquam id ante adipiscing commodo integer arcu amet blandit adipiscing arcu ante.</p>
-
+					<h3>What are API keys?</h3>
+					<p>An application programming interface key (API key) is a code passed in by computer programs calling an application programming interface (API) to identify the calling program, its developer, or its user to the Web site. You can get more detailed info about API keys <a href="https://en.wikipedia.org/wiki/Application_programming_interface_key">here.</a></p>
+					<h3>But why API keys?</h3>
+					<p> Great question! Since most APIs are available for free, everyone can access and make requests to them. Just like the Earth, the servers hosting these APIs have limited resources and thus if someone with detrimental intention tries to sabotage the server, they can attempt to flood the servers with numerous repetitive requests that can backlog the servers and potentially render them inaccessible to other users. And there would be no way to track them down without the use of API keys.</p>
+					<p>Each API key will help uniquely identify each developer and keep track of the number of requests that are made to the servers in a specified timeframe. Once a developer has exceeded their limits of calls, the server will temporarily block them from making further calls. Then based on the frequency of those blocks, the API provider may decide to permanently block the user altogether if it is determined that the user has had malicious intents using the service. As API keys are important in identifying the user, you should treat them as your password to your online bank accounts and never share them. Unless you want to get banned out of a blue day for no reasons :-) </p>
+					<h3>How to get an API key?</h3>
+					<p>Since we are going to discuss the NASA APIs here, we will discuss how to get a NASA API key. But do we need a key to use their APIs? The answer is no. According to the site, you don't need to have a key to explore NASA data. If you are just trying out their APIs, you can use their generic key: <b>DEMO_KEY.</b> However, if you are going to use the service intensively, you should sign up for a <a href="https://api.nasa.gov/index.html#apply-for-an-api-key">NASA developer key.</a> Once you have completed the form, an API key will be emailed to you within a few minutes. And remember to keep it secured!</p>
+					<p>Next, we will learn how to interact with the Astronomy Picture Of The Day API using JSON and Javascript. You are about to get a glimsp of the power of APIs.</p>
+					<ul class="actions">
+						<li>
+							<a href="what-api.html" class="button alt">Back</a>
+						</li>
+						<li>
+							<a href="apod.html" class="button alt">Next</a>
+						</li>
+					</ul>
 				</div>
 			</section>
 
 		<!-- Footer -->
 			<footer id="footer">
 				<div class="inner">
-					<ul class="icons">
-						<li><a href="#" class="icon fa-facebook">
-							<span class="label">Facebook</span>
-						</a></li>
-						<li><a href="#" class="icon fa-twitter">
-							<span class="label">Twitter</span>
-						</a></li>
-						<li><a href="#" class="icon fa-instagram">
-							<span class="label">Instagram</span>
-						</a></li>
-						<li><a href="#" class="icon fa-linkedin">
-							<span class="label">LinkedIn</span>
-						</a></li>
-					</ul>
 					<ul class="copyright">
-						<li>&copy; Untitled.</li>
-						<li>Images: <a href="http://unsplash.com">Unsplash</a>.</li>
+						<li>&copy; Khoa Nguyen - OSU CS 290 - Spring 2017.</li>
 						<li>Design: <a href="http://templated.co">TEMPLATED</a>.</li>
 					</ul>
 				</div>

@@ -5,80 +5,164 @@
 	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 -->
 <html>
-	<head>
-		<title>Generic - Retrospect by TEMPLATED</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-	</head>
-	<body>
+<head>
+	<title>EPIC</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+</head>
+<body>
 
-		<!-- Header -->
-			<header id="header">
-				<h1><a href="index.html">Retrospect</a></h1>
-				<a href="#nav">Menu</a>
+	<!-- Header -->
+	<header id="header">
+		<h1><a href="index.html">NASA API</a></h1>
+		<a href="#nav">Menu</a>
+	</header>
+
+	<!-- Nav -->
+	<nav id="nav">
+		<ul class="links">
+			<li><a href="index.html">Home</a></li>
+			<li><a href="what-api.html">Intro to APIs</a></li>
+			<li><a href="api-key.html">Get your API Key</a></li>
+			<li><a href="apod.html">APOD</a></li>
+			<li><a href="apod-demo.html">APOD Demo</a></li>
+			<li><a href="epic.html">EPIC</a></li>
+			<li><a href="epic-demo.html">EPIC Demo</a></li>
+			<li><a href="conclusion.html">Conclusion</a></li>
+		</ul>
+	</nav>
+
+	<!-- Main -->
+	<section id="main" class="wrapper">
+		<div class="container">
+
+			<header class="major special">
+				<h2>Earth Polychromatic Imaging Camera</h2>
 			</header>
+			<a href="#" class="image fit"><img src="images/pic11.jpg" alt="" /></a>
+			<h3>What is EPIC API?</h3>
+			<p>The Earth Polychromatic Imaging Camera (EPIC) API provides stunning images of the Earth captured by DSCOVR, a deep-space satellite uniquely positioned at the Earth-Sun Lagrange point. Like APOD, this API allows us to get full disc imagery of the Earth as well as information regarding the images.</p>
 
-		<!-- Nav -->
-			<nav id="nav">
-				<ul class="links">
-					<li><a href="index.html">Home</a></li>
-					<li><a href="generic.html">Generic</a></li>
-					<li><a href="elements.html">Elements</a></li>
-				</ul>
-			</nav>
+			<h3>Interacting with EPIC API</h3>
+			<p>Similar to APOD, the EPIC API allows us to send a request to NASA server to get full-disc images of the Earth on our given date if they are available. The server will then respond to our request with a JSON object. The difference with this API is that it doesn't provide a direct URL to the image like the APOD API did. Instead, it replies with a JSON object that contains an array of objects, which store the details of the images (the name of the image, date and time it was taken, and coordinates of the Earth, Sun and the camera capsule). For a more detailed explanation of how to use the API, please visit the official document <a href="https://epic.gsfc.nasa.gov/about/api">here.</a></p>
+			<p>As we have already covered the basics in the APOD API page, let's discuss some small additional things that are required to make use of the EPIC API here. The NASA servers store two sets of EPIC images: natural and enhanced. The way we submit queries to the API is very similar between the two as you can see in the table below. So beside the date, we will need to allow the users to select between the two options on our website.</p>
+			<a class="image fit"><img src="images/epic-query.jpg" alt="" /></a>
+			<p>Another interesting feature of this API is we don't even need to include an API key in our request. The request parameters will already be included in the URL. For example, if we need to look for enhanced EPIC images on 2017-01-01, our request to the server will be as below</p>
+			<code>https://epic.gsfc.nasa.gov/api/enhanced/date/2017-01-01<br></code>
+			<p>Then the server will process our request and return the below JSON object.</p>
+			<a class="image fit"><img src="images/epic-json-raw.jpg" alt="" /></a>
+			<p>As you can see, the JSON object is much more cryptic this time. Lucky for us, we have a handy plug-in <a href="https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa?hl=en">JSON Formatter.</a> After using the formatter, things look much more legible as below.
 
-		<!-- Main -->
-			<section id="main" class="wrapper">
-				<div class="container">
+				<a class="image fit"><img src="images/epic-json-formatted.jpg" alt="" /></a>
 
-					<header class="major special">
-						<h2>Generic</h2>
-						<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
-					</header>
+				<p>There is much more information associated with each images now. However, as mentioned before, the URL link to the image is not readily availbable. Thus we will need to create our own URL to access and display the image on our website. The URl for each images can be created using the guideline provided by the API documentation as below.</p>
 
-					<a href="#" class="image fit"><img src="images/pic11.jpg" alt="" /></a>
-					<p>Vis accumsan feugiat adipiscing nisl amet adipiscing accumsan blandit accumsan sapien blandit ac amet faucibus aliquet placerat commodo. Interdum ante aliquet commodo accumsan vis phasellus adipiscing. Ornare a in lacinia. Vestibulum accumsan ac metus massa tempor. Accumsan in lacinia ornare massa amet. Ac interdum ac non praesent. Cubilia lacinia interdum massa faucibus blandit nullam. Accumsan phasellus nunc integer. Accumsan euismod nunc adipiscing lacinia erat ut sit. Arcu amet. Id massa aliquet arcu accumsan lorem amet accumsan.</p>
-					<p>Amet nibh adipiscing adipiscing. Commodo ante vis placerat interdum massa massa primis. Tempus condimentum tempus non ac varius cubilia adipiscing placerat lorem turpis at. Aliquet lorem porttitor interdum. Amet lacus. Aliquam lobortis faucibus blandit ac phasellus. In amet magna non interdum volutpat porttitor metus a ante ac neque. Nisi turpis. Commodo col. Interdum adipiscing mollis ut aliquam id ante adipiscing commodo integer arcu amet Ac interdum ac non praesent. Cubilia lacinia interdum massa faucibus blandit nullam. Accumsan phasellus nunc integer. Accumsan euismod nunc adipiscing lacinia erat ut sit. Arcu amet. Id massa aliquet arcu accumsan lorem amet accumsan commodo odio cubilia ac eu interdum placerat placerat arcu commodo lobortis adipiscing semper ornare pellentesque.</p>
-					<p>Amet nibh adipiscing adipiscing. Commodo ante vis placerat interdum massa massa primis. Tempus condimentum tempus non ac varius cubilia adipiscing placerat lorem turpis at. Aliquet lorem porttitor interdum. Amet lacus. Aliquam lobortis faucibus blandit ac phasellus. In amet magna non interdum volutpat porttitor metus a ante ac neque. Nisi turpis. Commodo col. Interdum adipiscing mollis ut aliquam id ante adipiscing commodo integer arcu amet blandit adipiscing arcu ante.</p>
+				<a class="image fit"><img src="images/epic-image-location.jpg" alt="" /></a>
 
-				</div>
-			</section>
+				<p>Now that we have discussed the differences and the addition steps we need to add in order to show the images, let's look at the Javascript and HTML code to accomplish that!</p>
 
-		<!-- Footer -->
-			<footer id="footer">
-				<div class="inner">
-					<ul class="icons">
-						<li><a href="#" class="icon fa-facebook">
-							<span class="label">Facebook</span>
-						</a></li>
-						<li><a href="#" class="icon fa-twitter">
-							<span class="label">Twitter</span>
-						</a></li>
-						<li><a href="#" class="icon fa-instagram">
-							<span class="label">Instagram</span>
-						</a></li>
-						<li><a href="#" class="icon fa-linkedin">
-							<span class="label">LinkedIn</span>
-						</a></li>
-					</ul>
-					<ul class="copyright">
-						<li>&copy; Untitled.</li>
-						<li>Images: <a href="http://unsplash.com">Unsplash</a>.</li>
-						<li>Design: <a href="http://templated.co">TEMPLATED</a>.</li>
-					</ul>
-				</div>
-			</footer>
+				<h3>Explanation</h3>
+				<p>Once we have received the object, it is time we used our Javascript to parse the details in the object and display it to our website. Below you will find the Javascript and HTML code for our site and we will go into details right below it. <b>Note that the Result tab will not actually work in our JSFiddle below due to request restrictions but it gives you a sense of what our page will look like. </b>A fully interactive demo page can be found on the next page when we are done. But if you are interested in seeing what the API is for, you can see NASA's site that makes use of their EPIC API <a href="https://epic.gsfc.nasa.gov">here.</a></p>
+				<iframe width="100%" height="600" src="https://jsfiddle.net/babyduck289/vn0p5byk/3/embedded/js,html,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+				<p>As you can see in the HTML, we have added the drop-down menu for the user to choose what type of image (natural/enhanced) they would like to see. Once they fill the date out, select the image type and click the 'Show me the picture!' button, our Javascript will make a request to the server accordingly. We will focus on the steps that are different from what we have seen in the APOD API. Let's look at the below portion of our Javascript.</p>
+				<pre>
+					<code>
+						document.addEventListener('DOMContentLoaded', bindButtons);
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>
+						function bindButtons() {
+						var year, month, date, imageType;
+						document.getElementById('submitButton').addEventListener('click', function(event){
+						var req = new XMLHttpRequest();
+						var url = "https://epic.gsfc.nasa.gov/api/";
+						imageType = document.getElementById("image_type").value;
+						url += imageType + "/";
+						var desiredDate = document.getElementById("searchDate").value;
 
-	</body>
+						if (desiredDate != '') {
+						url += "date/" + desiredDate;
+						year = desiredDate.substring(0, 4);
+						month = desiredDate.substring(5, 7);
+						date = desiredDate.substring(8, 10);
+					}
+					console.log(url);
+
+					req.open("GET", url, true);
+				</code>
+			</pre>
+			<p>First of all, since we need to create our own URL to access the images based on its type and date, we need to create variables to keep track of those details. When the user inputs the string for their desired date, we will parse the string and keep the year, month, and date in the respective variables. Also, the image type is kept track of by the imageType variable.</p>
+
+			<p>Next, in order to receive JSON object, we need to submit our request with the specified image type and date in the following format</p>
+
+			<code>https://epic.gsfc.nasa.gov/api/IMAGETYPE/date/YYYY-MM-DD</code>
+
+			<p> For example, if we would like a natural image for 2017-01-01, then our request would be the following.</p>
+
+			<code>https://epic.gsfc.nasa.gov/api/natural/date/2017-01-01</code>
+
+			<p>Next, we need to get the image name which is the last part of the image URL we will need. As mentioned above, the JSON object returned by the server contains an array of smaller ojects, each of which contains details like name, date and time, and other information associated with the image. Unlike APOD, images may not be available for a given date and image type combination, in which case we would receive an empty array. Therefore, we need to check for such cases first in the following portion of our Javascript</p>
+
+			<pre>
+				<code>
+					req.addEventListener('load', function() {
+						if (req.status >= 200 && req.status < 400) {
+							var response = JSON.parse(req.responseText);
+							if (!response.length) {
+								document.getElementById('result').textContent = "Unfortunately there is no images available on the selected day. Please select another day!";
+								// reset the elements
+								document.getElementById('pic').src = "images/pic11.jpg";
+								document.getElementById('caption').textContent = "";
+								document.getElementById('date').textContent = "";
+							} else {
+								var dateURL = year + "/" + month + "/" + date;
+								var picUrl = "https://epic.gsfc.nasa.gov/archive/" + imageType + "/" + dateURL + "/png/" + response[0].image + ".png";
+								document.getElementById('result').textContent = "There are " + response.length + " images available. Showing only the first image!";
+								document.getElementById('caption').textContent = response[0].caption;
+								document.getElementById('date').textContent = response[0].date;
+								document.getElementById('pic').src = picUrl;
+								console.log(response);
+							}
+						} else {
+						console.log("Error in network request: " + req.statusText);
+					}
+				});
+				</code>
+			</pre>
+			<p>When the array is empty (length is 0), then it will print a message to the Result line on our page as well as reseting the image, caption, and date in case it has showned other images before.</p>
+			<p>When the array is not empty, the Result line will tell how many images are available for the given image type and date combination. It will also display the first image available in the array and its caption and date and time. The rest of our Javascript is pretty much the same with what we have seen in our APOD tutorial.</p>
+
+
+			<p>By now, hopefully you have got a better understanding of how to make request to the EPIC API and process the server response in order to display the details to our end-users. Next page, you will see a fully-functional demo of what we have discussed so far for the EPIC API!</p> 
+			<ul class="actions">
+				<li>
+					<a href="apod-demo.html" class="button alt">Back</a>
+				</li>
+				<li>
+					<a href="epic-demo.html" class="button alt">Next</a>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+<!-- Footer -->
+<footer id="footer">
+	<div class="inner">
+		<ul class="copyright">
+			<li>&copy; Khoa Nguyen - OSU CS 290 - Spring 2017.</li>
+			<li>Design: <a href="http://templated.co">TEMPLATED</a>.</li>
+		</ul>
+	</div>
+</footer>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/skel.min.js"></script>
+<script src="assets/js/util.js"></script>
+<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+<script src="assets/js/main.js"></script>
+
+</body>
 </html>

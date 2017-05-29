@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>NASA APOD</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <h1>Astronomy Picture Of the Day</h1>
+  <h4>Please enter a date:</h4>
+  <form>
+    <label>Date (YYYY-MM-DD):</label>
+    <input type="text" id="searchDate"/>
+    <br>
+    <br>
+    <button type="submit" id="submitButton">Show me the picture!</button>
+  </form>
+  <img id="pic" src="" width="550" height="500"><br>
+  <p>Title: <span id="title"></span></p>
+  <p>Date: <span id="date"></span></p>
+  <p>Explanation: <span id="explanation"></span></p>
+  <script src="script.js"></script>
+</body>
+</html>

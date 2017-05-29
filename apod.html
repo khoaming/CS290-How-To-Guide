@@ -5,87 +5,144 @@
 	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 -->
 <html>
-	<head>
-		<title>API Keys</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-	</head>
-	<body>
+<head>
+	<title>APOD</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+</head>
+<body>
 
-		<!-- Header -->
-			<header id="header">
-				<h1><a href="index.html">NASA API</a></h1>
-				<a href="#nav">Menu</a>
+	<!-- Header -->
+	<header id="header">
+		<h1><a href="index.html">NASA API</a></h1>
+		<a href="#nav">Menu</a>
+	</header>
+
+	<!-- Nav -->
+	<nav id="nav">
+		<ul class="links">
+			<li><a href="index.html">Home</a></li>
+			<li><a href="what-api.html">Intro to APIs</a></li>
+			<li><a href="api-key.html">Get your API Key</a></li>
+			<li><a href="apod.html">APOD</a></li>
+			<li><a href="apod-demo.html">APOD Demo</a></li>
+			<li><a href="epic.html">EPIC</a></li>
+			<li><a href="epic-demo.html">EPIC Demo</a></li>
+			<li><a href="conclusion.html">Conclusion</a></li>
+		</ul>
+	</nav>
+
+	<!-- Main -->
+	<section id="main" class="wrapper">
+		<div class="container">
+
+			<header class="major special">
+				<h2>Astronomy Picture Of The Day</h2>
+				<p>How to interact with APIs using JSON and Javascript?</p>
 			</header>
 
-		<!-- Nav -->
-			<nav id="nav">
-				<ul class="links">
-					<li><a href="index.html">Home</a></li>
-					<li><a href="generic.html">Generic</a></li>
-					<li><a href="elements.html">Elements</a></li>
-					<li><a href="home.html">Home</a></li>
-					<li><a href="nasaAPI.html">NASA API Intro</a></li>
-					<li><a href="getKey.html">Get your API Key</a></li>
-					<li><a href="introJSON.html">Working with JSON</a></li>
-					<li><a href="potd.html">Picture of the Day</a></li>
-					<li><a href="marsRov.html">Mars Rover Images</a></li>
-					<li><a href="putTogeth.html">Putting it Together</a></li>
-				</ul>
-			</nav>
+			<a href="#" class="image fit"><img src="images/pic11.jpg" alt="" /></a>
+			<h3>Why JSON and Javascript?</h3>
+			<p>JSON stands for Javascript Object Notation. It is a syntax for storing and exchanging data between a browser and a server. As its name indicates, JSON is designed so that it can be used in tandem with Javascript effortlessly. When data are exchanged between the browser and the server, both ends of the interaction would have data contained in Javascript objects. Those objects are converted to JSON and sent over the network to the other end where they will be reversed back to a Javascript object and parsed for their intended use. As such, JSON and Javascript are critical to our interaction with APIs. </p>
+			<p>As there are plenty of resources covering JSON and Javascript, we are not going into details about them. Instead, you can visit below resources to get up to speed with understanding what they are and how they work. Take your time to complete some of the examples provided on the sites and try to understand the basics of what they are and how they are useful in web development. Feel free to visit other pages too if you need. Then we will dive into a specific example of how to use them to interact with the Astronomy Picture Of the Day (APOD) API.</p>
+			<h5>Javascript Resources</h5>
+			<ul class="links">
+				<li><a href="https://www.javascript.com/learn/javascript/strings">www.javascript.com</a></li>
+				<li><a href="https://www.w3schools.com/js/default.asp">www.w3schools.com</a></li>
+			</ul>
+			<h5>JSON Resources</h5>
+			<ul class="links">
+				<li><a href="http://www.json.org/">www.json.org</a></li>
+				<li><a href="https://www.w3schools.com/js/js_json_intro.asp">www.w3schools.com</a></li>
+			</ul>
+			<h3>Interacting with APOD API</h3>
+			<p>Now that you have the basic of JSON and Javascript, let's us begin to interact with the APOD API and pull some interesting images and their details.</p>
+			<p>From the high level, the APOD API allows us to send a request to NASA server to get their Picture of the Day on our given date. The server will then respond to our request with a JSON containing a URL to the picture and all related information. For a more detailed explanation of how to use the API, please visit the official document <a href="https://api.nasa.gov/api.html#apod">here.</a></p>
+			<p>To send a request to the API, we will send a HTTP GET request in the form of an URL that can include three parameters date, hd, and api_key.</p>
+			<a href="#" class="image fit"><img src="images/apod-para.jpg" alt="" /></a>
+			<p>If we were to send the request as-is just like the example query above, we will always only be getting the picture of the day of the current date. But what if we want to see the picture for a day in the past? Then we can amend our request to include the date parameter, and the new request will look like below. Notice the ampersand sign '&' in between the parameters.</p>
+			<code>"https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=2015-08-25"<br></code>
+			<p>Then the server will process our request and return us with the below JSON object.</p>
+			<a href="#" class="image fit"><img src="images/apod-json.jpg" alt="" /></a>
+			<p>Note in the object, you can see several property-and-value pairs within the object. For example, the first property is "copyright" which has the value of "Matthew Dieterich". Now that we have received the JSON object, it is time we used our Javascript to parse the details in the object and display it to our website. Below you will find the Javascript and HTML code for our site and we will go into details right below it. <b>Note that the Result tab will not actually work in our JSFiddle below due to request restrictions but it gives you a sense of what our page will look like. </b>A fully interactive demo page can be found on the next page when we are done. But if you are interested in seeing what the API is about right now, you can see NASA's site that makes use of their API <a href="https://apod.nasa.gov/apod/astropix.html">here.</a></p>
+			<iframe width="100%" height="650" src="http://jsfiddle.net/babyduck289/udr3n9qy/3/embedded/js,html,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+			<h3>Explantion</h3>
+			<p>As you can see in the HTML, we create a form for the user to submit the date that they desire to see the Astronomy Picture Of the Day. Once they fill it out and click the 'Show me the picture!' button, our Javascript will make a request to the server accordingly. Let's break it down step by step what is going on here</p>
+			<pre>
+				<code>
+					document.addEventListener('DOMContentLoaded', bindButtons);
 
-		<!-- Main -->
-			<section id="main" class="wrapper">
-				<div class="container">
+					function bindButtons() {
+					document.getElementById('submitButton').addEventListener('click', function(event) {
+						var req = new XMLHttpRequest();
+						var url = "https://api.nasa.gov/planetary/apod?api_key=";
+						var appId = "DEMO_KEY";
+						url += appId;
+						if (document.getElementById("searchDate").value != '') {
+							url += "&date=" + document.getElementById("searchDate").value;
+						}
+						req.open("GET", url, true);
+			</code>
+		</pre>
+		<p>This section is creating an event listener that will wait for the user to enter the date. Once the user has entered the date and click the button, it will proceed to create an XMLHttpRequest to the NASA server. Notice that we are using the 'DEMO_KEY' here for illustration purposes, but you can always include your personal key that you have registered before. After appending the API key, the request will be appended with the desired date if the user has entered one. If they simply clicked the button, our code will not append this date parameter in the request. </p>
+		<p>Then on the last line, we are creating a GET request to the server via our completed URL by making an asynchronous call (the <b>true</b> parameter specifies that). We would like to make a asynchronous call because ideally we don't want our website to freeze while it waits for the response from the server, which could take longer depending on the traffic and internet speed. </p>
+		<p>So that is it for the making request portion of our code. Notice that technically we have <b>NOT</b> sent our request as of yet as we still need to specify how the program will process the reply from the server first. Let's take a look at that portion next.</p>
+		<pre>
+			<code>
 
-					<header class="major special">
-						<h2>APOD</h2>
-						<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
-					</header>
+				req.addEventListener('load', function() {
+					if (req.status >= 200 && req.status < 400) {
+						var response = JSON.parse(req.responseText);
+						document.getElementById('title').textContent = response.title;
+						document.getElementById('date').textContent = response.date;
+						document.getElementById('explanation').textContent = response.explanation;
+						document.getElementById('pic').src = response.hdurl;
+						console.log(response);
+					} else {
+					console.log("Error in network request: " + req.statusText);
+				}
+			});
+			req.send();
+			event.preventDefault();
+		});
+	}
+</code>
+</pre>
+<p>Here, we are creating an event listener on our request to wait for it to completely load the response being sent from the NASA server. Then we check if the status of the request is from 200 to less than 400, which generally means that the request was processed properly without any major error. If there was an error, the error message will be logged to the console of the browser.</p>
+<p>Next, we translate the JSON reponse from the server into a Javascript object using the built-in parse method of Javascript. Finally, we will append all the details that had been parsed from the object to our HTML document by using the <b>getElementById</b> method. As you can see, it is pretty straightforward to extract the title, date, explanation, and hdurl from the JSON object and assign it to our HTML elements to ultimately display them to the user of our website</p>
+<p>Last but not least, the last 2 lines of our code are where we actually send our request to the server. The <b>event.preventDefault();</b> line is to ensure that the page doesn't refresh when the user click the "Show me the picture!" button, which will mess up with how our program functions.</p>
+<p>By now, hopefully you have got a better understanding of how to make request to the APOD API and process the server response in order to display the details to our end-users. Next page, you will see a fully-functional demo of what we have covered so far!</p> 
+<ul class="actions">
+	<li>
+		<a href="api-key.html" class="button alt">Back</a>
+	</li>
+	<li>
+		<a href="apod-demo.html" class="button alt">Next</a>
+	</li>
+</ul>
+</div>
+</section>
 
-					<a href="#" class="image fit"><img src="images/pic11.jpg" alt="" /></a>
-					<p>Vis accumsan feugiat adipiscing nisl amet adipiscing accumsan blandit accumsan sapien blandit ac amet faucibus aliquet placerat commodo. Interdum ante aliquet commodo accumsan vis phasellus adipiscing. Ornare a in lacinia. Vestibulum accumsan ac metus massa tempor. Accumsan in lacinia ornare massa amet. Ac interdum ac non praesent. Cubilia lacinia interdum massa faucibus blandit nullam. Accumsan phasellus nunc integer. Accumsan euismod nunc adipiscing lacinia erat ut sit. Arcu amet. Id massa aliquet arcu accumsan lorem amet accumsan.</p>
-					<p>Amet nibh adipiscing adipiscing. Commodo ante vis placerat interdum massa massa primis. Tempus condimentum tempus non ac varius cubilia adipiscing placerat lorem turpis at. Aliquet lorem porttitor interdum. Amet lacus. Aliquam lobortis faucibus blandit ac phasellus. In amet magna non interdum volutpat porttitor metus a ante ac neque. Nisi turpis. Commodo col. Interdum adipiscing mollis ut aliquam id ante adipiscing commodo integer arcu amet Ac interdum ac non praesent. Cubilia lacinia interdum massa faucibus blandit nullam. Accumsan phasellus nunc integer. Accumsan euismod nunc adipiscing lacinia erat ut sit. Arcu amet. Id massa aliquet arcu accumsan lorem amet accumsan commodo odio cubilia ac eu interdum placerat placerat arcu commodo lobortis adipiscing semper ornare pellentesque.</p>
-					<p>Amet nibh adipiscing adipiscing. Commodo ante vis placerat interdum massa massa primis. Tempus condimentum tempus non ac varius cubilia adipiscing placerat lorem turpis at. Aliquet lorem porttitor interdum. Amet lacus. Aliquam lobortis faucibus blandit ac phasellus. In amet magna non interdum volutpat porttitor metus a ante ac neque. Nisi turpis. Commodo col. Interdum adipiscing mollis ut aliquam id ante adipiscing commodo integer arcu amet blandit adipiscing arcu ante.</p>
+<!-- Footer -->
+<footer id="footer">
+	<div class="inner">
+		<ul class="copyright">
+			<li>&copy; Khoa Nguyen - OSU CS 290 - Spring 2017.</li>
+			<li>Design: <a href="http://templated.co">TEMPLATED</a>.</li>
+		</ul>
+	</div>
+</footer>
 
-				</div>
-			</section>
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/skel.min.js"></script>
+<script src="assets/js/util.js"></script>
+<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+<script src="assets/js/main.js"></script>
 
-		<!-- Footer -->
-			<footer id="footer">
-				<div class="inner">
-					<ul class="icons">
-						<li><a href="#" class="icon fa-facebook">
-							<span class="label">Facebook</span>
-						</a></li>
-						<li><a href="#" class="icon fa-twitter">
-							<span class="label">Twitter</span>
-						</a></li>
-						<li><a href="#" class="icon fa-instagram">
-							<span class="label">Instagram</span>
-						</a></li>
-						<li><a href="#" class="icon fa-linkedin">
-							<span class="label">LinkedIn</span>
-						</a></li>
-					</ul>
-					<ul class="copyright">
-						<li>&copy; Untitled.</li>
-						<li>Images: <a href="http://unsplash.com">Unsplash</a>.</li>
-						<li>Design: <a href="http://templated.co">TEMPLATED</a>.</li>
-					</ul>
-				</div>
-			</footer>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>
-
-	</body>
+</body>
 </html>
